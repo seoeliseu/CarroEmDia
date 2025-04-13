@@ -60,4 +60,6 @@ Centraliza as responsabilidades de bootstrap da aplicação.
 ---
 
 ### Exemplo migration command
+```bash
 Add-Migration InitialCreate -Project CarroEmDia.Infrastructure -StartupProject CarroEmDia.Api -OutputDir Data/Migrations
+```
