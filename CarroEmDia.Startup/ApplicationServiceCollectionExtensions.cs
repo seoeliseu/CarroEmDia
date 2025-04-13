@@ -1,5 +1,7 @@
-﻿using FluentValidation;
+﻿using CarroEmDia.Application.Dispatcher;
+using CarroEmDia.Application.Shared;
 using Microsoft.Extensions.DependencyInjection;
+
 
 namespace CarroEmDia.Startup
 {
@@ -7,7 +9,16 @@ namespace CarroEmDia.Startup
     {
         public static IServiceCollection AddApplication(this IServiceCollection services)
         {
-            //services.AddValidatorsFromAssemblyContaining<CriarUsuarioCommandValidator>();
+            services.AddScoped<IDispatcher, Dispatcher>();
+
+            services.Scan(scan => scan
+                            .FromAssemblyOf<Dispatcher>()
+                            .AddClasses(c => c.AssignableTo(typeof(ICommandHandler<,>)))
+                            .AsImplementedInterfaces()
+                            .WithScopedLifetime()
+                            .AddClasses(c => c.AssignableTo(typeof(IQueryHandler<,>)))
+                            .AsImplementedInterfaces()
+                            .WithScopedLifetime());
 
             return services;
         }

@@ -2,6 +2,8 @@
 using Microsoft.Extensions.Configuration;
 using CarroEmDia.Infrastructure.Data.Context;
 using Microsoft.Extensions.DependencyInjection;
+using CarroEmDia.Domain.Repositories;
+using CarroEmDia.Infrastructure.Data.Repositories;
 
 namespace CarroEmDia.Startup
 {
@@ -14,6 +16,15 @@ namespace CarroEmDia.Startup
                 config.GetConnectionString("Default"),
                 sqliteOptions => sqliteOptions.MigrationsAssembly("CarroEmDia.Infrastructure")
             ));
+
+             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+
+            services.AddScoped<IVehicleRepository, VehicleRepository>();
+            services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IMaintenanceRepository, MaintenanceRepository>();
+            services.AddScoped<IMaintenanceTypeRepository, MaintenanceTypeRepository>();
+
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
 
             return services;
         }
