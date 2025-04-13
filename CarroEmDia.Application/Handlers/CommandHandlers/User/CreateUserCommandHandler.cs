@@ -1,8 +1,7 @@
-﻿using CarroEmDia.Application.Commands.User;
+﻿using CarroEmDia.Domain.Entities;
 using CarroEmDia.Domain.Repositories;
-using CarroEmDia.Domain.Entities;
 using CarroEmDia.Application.Shared.CQRS;
-
+using CarroEmDia.Application.Commands.User;
 
 namespace CarroEmDia.Application.Handlers.CommandHandlers.User
 {
@@ -12,10 +11,12 @@ namespace CarroEmDia.Application.Handlers.CommandHandlers.User
 
         public async Task<int> HandleAsync(CreateUserCommand command, CancellationToken cancellationToken = default)
         {
+            var passwordHash = BCrypt.Net.BCrypt.HashPassword(command.Password);
+
             var user = new UserEntity(
                 name: command.Name,
                 email: command.Email,
-                passwordHash: command.PasswordHash
+                passwordHash: passwordHash
             );
 
             await _unitOfWork.Users.AddAsync(user);

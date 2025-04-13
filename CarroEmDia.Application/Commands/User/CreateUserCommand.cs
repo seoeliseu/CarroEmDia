@@ -6,6 +6,6 @@ namespace CarroEmDia.Application.Commands.User
     {
         public string Name { get; init; } = null!;
         public string Email { get; init; } = null!;
-        public string PasswordHash { get; init; } = null!;
+        public string Password { get; init; } = null!;
     }
 }

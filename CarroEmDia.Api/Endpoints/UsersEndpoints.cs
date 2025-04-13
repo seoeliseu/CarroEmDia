@@ -1,4 +1,5 @@
-﻿using CarroEmDia.Application.Commands.User;
+﻿using CarroEmDia.Api.Authorization;
+using CarroEmDia.Application.Commands.User;
 using CarroEmDia.Application.Dispatcher;
 
 namespace CarroEmDia.Api.Endpoints
@@ -17,7 +18,7 @@ namespace CarroEmDia.Api.Endpoints
             {
                 var userId = await dispatcher.DispatchAsync(command);
                 return Results.Created($"/users/{userId}", new { Id = userId });
-            });
+            }).WithMetadata(new AllowApiKeyAttribute());
 
             app.MapPut("/users/{id}/password", async (int id, UpdateUserPasswordCommand command, IDispatcher dispatcher) =>
             {
