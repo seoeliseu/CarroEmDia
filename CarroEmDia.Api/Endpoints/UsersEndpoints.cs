@@ -28,6 +28,19 @@ namespace CarroEmDia.Api.Endpoints
 
                 return Results.NoContent();
             });
+
+            app.MapPost("/users/auth", async (AuthenticateUserCommand command, IDispatcher dispatcher) =>
+            {
+                try
+                {
+                    var token = await dispatcher.DispatchAsync(command);
+                    return Results.Ok(new { Token = token });
+                }
+                catch (UnauthorizedAccessException)
+                {
+                    return Results.Unauthorized();
+                }
+            });
         }
 
         private static void MapQueryEndpoints(this IEndpointRouteBuilder app)
