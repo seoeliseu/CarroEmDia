@@ -7,6 +7,8 @@ namespace CarroEmDia.Infrastructure.Data.Context
     {
         public virtual DbSet<UserEntity> Users { get; set; }
         public virtual DbSet<VehicleEntity> Vehicles { get; set; }
+        public virtual DbSet<MaintenanceEntity> Maintenances { get; set; }
+        public virtual DbSet<MaintenanceTypeEntity> MaintenanceTypes { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

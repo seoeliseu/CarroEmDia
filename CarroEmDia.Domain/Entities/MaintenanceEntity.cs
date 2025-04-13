@@ -1,17 +1,17 @@
 ﻿namespace CarroEmDia.Domain.Entities
 {
-    public class MaintenanceEntity(int maintenanceTypeId, string description, DateTime maintenanceDate, int mileage, decimal cost) : BaseEntity, IAggregateRoot
+    public class MaintenanceEntity(int vehicleId, int maintenanceTypeId, string description, DateTime maintenanceDate, int mileageAtMaintenance, decimal cost) : BaseEntity, IAggregateRoot
     {
-        public int VehicleId { get; private set; }
+        public int VehicleId { get; private set; } = vehicleId;
         public int MaintenanceTypeId { get; private set; } = maintenanceTypeId;
         public string Description { get; private set; } = description;
         public DateTime MaintenanceDate { get; private set; } = maintenanceDate;
-        public int MileageAtMaintenance { get; private set; } = mileage;
+        public int MileageAtMaintenance { get; private set; } = mileageAtMaintenance;
         public decimal Cost { get; private set; } = cost;
-        public int? NextExpectedMaintenanceMileage { get; private set; }
-        public DateTime? NextExpectedMaintenanceDate { get; private set; }
+        public int? NextExpectedMaintenanceMileage { get; private set; } = null;
+        public DateTime? NextExpectedMaintenanceDate { get; private set; } = null;
         public bool IsCompleted { get; private set; } = true;
-        public DateTime? RememberAt { get; set; }
+        public DateTime? RememberAt { get; set; } = null;
 
         public VehicleEntity? Vehicle { get; private set; }
         public MaintenanceTypeEntity? MaintenanceType { get; private set; }
