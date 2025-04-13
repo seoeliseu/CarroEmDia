@@ -62,4 +62,4 @@ Centraliza as responsabilidades de bootstrap da aplicação.
 Se quiser, posso gerar um diagrama visual dessa estrutura também. Deseja isso?
 
 ### Exemplo migration command
-```Add-Migration InitialCreate -Project CarroEmDia.Infrastructure -StartupProject CarroEmDia.Api -OutputDir Data/Migrations
+```Add-Migration InitialCreate -Project CarroEmDia.Infrastructure -StartupProject CarroEmDia.Api -OutputDir Data/Migrations```
