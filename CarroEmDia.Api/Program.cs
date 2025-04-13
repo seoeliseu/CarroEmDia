@@ -1,4 +1,5 @@
 using CarroEmDia.Startup;
+using CarroEmDia.Api.Endpoints;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -6,6 +7,8 @@ builder.Services.AddServices(builder.Configuration);
 
 var app = builder.Build();
 
-app.MapGet("/", () => "Hello World!");
+app.MapGet("/", () => "API running...");
+
+app.MapVehicleEndpoints();
 
 app.Run();
