@@ -1,5 +1,5 @@
 ﻿using CarroEmDia.Application.Dispatcher;
-using CarroEmDia.Application.Shared;
+using CarroEmDia.Application.Shared.CQRS;
 using Microsoft.Extensions.DependencyInjection;
 
 

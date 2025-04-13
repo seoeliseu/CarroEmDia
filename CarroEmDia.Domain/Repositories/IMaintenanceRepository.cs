@@ -2,7 +2,7 @@
 
 namespace CarroEmDia.Domain.Repositories
 {
-    public interface IMaintenanceRepository: IRepository<Maintenance>
+    public interface IMaintenanceRepository: IRepository<MaintenanceEntity>
     {
 
     }

@@ -1,0 +1,42 @@
+﻿using CarroEmDia.Application.Commands.User;
+using CarroEmDia.Application.Dispatcher;
+
+namespace CarroEmDia.Api.Endpoints
+{
+    public static class UsersEndpoints
+    {
+        public static void MapUserEndpoints(this IEndpointRouteBuilder app)
+        {
+            MapCommandEndpoints(app);
+            MapQueryEndpoints(app);
+        }
+
+        private static void MapCommandEndpoints(this IEndpointRouteBuilder app)
+        {
+            app.MapPost("/users", async (CreateUserCommand command, IDispatcher dispatcher) =>
+            {
+                var userId = await dispatcher.DispatchAsync(command);
+                return Results.Created($"/users/{userId}", new { Id = userId });
+            });
+
+            app.MapPut("/users/{id}/password", async (int id, UpdateUserPasswordCommand command, IDispatcher dispatcher) =>
+            {
+                if (id != command.UserId)
+                    return Results.BadRequest("ID na URL e no corpo não coincidem.");
+
+                await dispatcher.DispatchAsync(command);
+
+                return Results.NoContent();
+            });
+        }
+
+        private static void MapQueryEndpoints(this IEndpointRouteBuilder app)
+        {
+            //app.MapGet("/users", async (IUserRepository userRepository) =>
+            //{
+            //    var users = await userRepository.GetAllAsync();
+            //    return Results.Ok(users);
+            //});
+        }
+    }
+}

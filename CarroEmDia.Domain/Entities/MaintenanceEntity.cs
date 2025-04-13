@@ -1,6 +1,6 @@
 ﻿namespace CarroEmDia.Domain.Entities
 {
-    public class Maintenance(int maintenanceTypeId, string description, DateTime maintenanceDate, int mileage, decimal cost) : BaseEntity, IAggregateRoot
+    public class MaintenanceEntity(int maintenanceTypeId, string description, DateTime maintenanceDate, int mileage, decimal cost) : BaseEntity, IAggregateRoot
     {
         public int VehicleId { get; private set; }
         public int MaintenanceTypeId { get; private set; } = maintenanceTypeId;
@@ -13,8 +13,8 @@
         public bool IsCompleted { get; private set; } = true;
         public DateTime? RememberAt { get; set; }
 
-        public Vehicle? Vehicle { get; private set; }
-        public MaintenanceType? MaintenanceType { get; private set; }
+        public VehicleEntity? Vehicle { get; private set; }
+        public MaintenanceTypeEntity? MaintenanceType { get; private set; }
 
         public void MarkAsPlanned(DateTime? expectedDate, int? expectedMileage, DateTime? rememberAt)
         {

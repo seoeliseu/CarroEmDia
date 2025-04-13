@@ -4,7 +4,7 @@ using CarroEmDia.Infrastructure.Data.Context;
 
 namespace CarroEmDia.Infrastructure.Data.Repositories
 {
-    public class MaintenanceTypeRepository(CarroEmDiaDbContext context) :Repository<MaintenanceType>(context), IMaintenanceTypeRepository
+    public class MaintenanceTypeRepository(CarroEmDiaDbContext context) :Repository<MaintenanceTypeEntity>(context), IMaintenanceTypeRepository
     {
 
     }

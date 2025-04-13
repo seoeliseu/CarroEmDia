@@ -1,4 +1,4 @@
-﻿using CarroEmDia.Application.Shared;
+﻿using CarroEmDia.Application.Shared.CQRS;
 
 namespace CarroEmDia.Application.Dispatcher
 {

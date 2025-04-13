@@ -1,9 +1,9 @@
 ﻿using CarroEmDia.Domain.Entities;
-using CarroEmDia.Application.Shared;
 using CarroEmDia.Domain.Repositories;
 using CarroEmDia.Application.Commands.Vehicle;
+using CarroEmDia.Application.Shared.CQRS;
 
-namespace CarroEmDia.Application.Handlers.CommandHandlers
+namespace CarroEmDia.Application.Handlers.CommandHandlers.Vehicle
 {
     public class CreateVehicleCommandHandler(IUnitOfWork unitOfWork) : ICommandHandler<CreateVehicleCommand, int>
     {
@@ -11,7 +11,7 @@ namespace CarroEmDia.Application.Handlers.CommandHandlers
 
         public async Task<int> HandleAsync(CreateVehicleCommand command, CancellationToken cancellationToken = default)
         {
-            var vehicle = new Vehicle(
+            var vehicle = new VehicleEntity(
                 userId: command.UserId,
                 brand: command.Brand,
                 model: command.Model,

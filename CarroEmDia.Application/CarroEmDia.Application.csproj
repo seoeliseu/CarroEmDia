@@ -7,11 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Handlers\QueryHandlers\" />
+    <Folder Include="Handlers\QueryHandlers\Vehicle\" />
+    <Folder Include="Handlers\QueryHandlers\User\" />
     <Folder Include="Queries\Vehicle\" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="9.0.4" />
   </ItemGroup>
 

@@ -1,5 +1,8 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using CarroEmDia.Infrastructure.Auth;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using CarroEmDia.Application.Shared.Common.Interfaces;
+using CarroEmDia.Application.Shared.Auth;
 
 namespace CarroEmDia.Startup
 {
@@ -9,6 +12,11 @@ namespace CarroEmDia.Startup
         {
             services.AddMemoryCache();
             services.AddHttpClient();
+
+            services.AddHttpContextAccessor();
+            services.AddScoped<ITokenService, TokenService>();
+            services.AddScoped<ICurrentUser, CurrentUser>();
+
             return services;
         }
     }

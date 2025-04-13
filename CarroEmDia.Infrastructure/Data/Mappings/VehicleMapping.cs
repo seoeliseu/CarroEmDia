@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace CarroEmDia.Infrastructure.Data.Mappings
 {
-    public class VehicleMapping : IEntityTypeConfiguration<Vehicle>
+    public class VehicleMapping : IEntityTypeConfiguration<VehicleEntity>
     {
-        public void Configure(EntityTypeBuilder<Vehicle> builder)
+        public void Configure(EntityTypeBuilder<VehicleEntity> builder)
         {
             builder.ToTable("Vehicles");
             builder.HasKey(v => v.Id);

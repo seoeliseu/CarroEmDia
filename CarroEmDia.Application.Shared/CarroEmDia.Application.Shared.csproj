@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\CarroEmDia.Domain\CarroEmDia.Domain.csproj" />
+  </ItemGroup>
+
 </Project>

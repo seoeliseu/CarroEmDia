@@ -1,4 +1,4 @@
-﻿namespace CarroEmDia.Application.Shared
+﻿namespace CarroEmDia.Application.Shared.CQRS
 {
     public interface IQueryHandler<TQuery, TResult> where TQuery : IQuery<TResult>
     {

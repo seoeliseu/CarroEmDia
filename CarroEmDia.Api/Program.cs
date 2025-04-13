@@ -9,6 +9,7 @@ var app = builder.Build();
 
 app.MapGet("/", () => "API running...");
 
+app.MapUserEndpoints();
 app.MapVehicleEndpoints();
 
 app.Run();

@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace CarroEmDia.Infrastructure.Data.Mappings
 {
-    public class MaintenanceTypeMapping : IEntityTypeConfiguration<MaintenanceType>
+    public class MaintenanceTypeMapping : IEntityTypeConfiguration<MaintenanceTypeEntity>
     {
-        public void Configure(EntityTypeBuilder<MaintenanceType> builder)
+        public void Configure(EntityTypeBuilder<MaintenanceTypeEntity> builder)
         {
             builder.ToTable("MaintenanceTypes");
 

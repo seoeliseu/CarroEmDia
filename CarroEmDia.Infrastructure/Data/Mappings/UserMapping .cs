@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace CarroEmDia.Infrastructure.Data.Mappings
 {
-    public class UserMapping : IEntityTypeConfiguration<User>
+    public class UserMapping : IEntityTypeConfiguration<UserEntity>
     {
-        public void Configure(EntityTypeBuilder<User> builder)
+        public void Configure(EntityTypeBuilder<UserEntity> builder)
         {
             builder.ToTable("Users");
 
