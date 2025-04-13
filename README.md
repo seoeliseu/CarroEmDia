@@ -1,13 +1,12 @@
 ﻿# Solution Structure - CarroEmDia
 
-📦 CarroEmDia
-├── 📁 CarroEmDia.Api
-├── 📁 CarroEmDia.Application
-├── 📁 CarroEmDia.Contracts
-├── 📁 CarroEmDia.Domain
-├── 📁 CarroEmDia.Infrastructure
-├── 📁 CarroEmDia.Startup
-
+CarroEmDia  
+├── CarroEmDia.Api  
+├── CarroEmDia.Application  
+├── CarroEmDia.Contracts  
+├── CarroEmDia.Domain  
+├── CarroEmDia.Infrastructure  
+└── CarroEmDia.Startup  
 
 ## 🧱 DDD Layer Descriptions
 
