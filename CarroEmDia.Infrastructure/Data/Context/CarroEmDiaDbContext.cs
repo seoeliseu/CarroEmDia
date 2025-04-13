@@ -5,12 +5,13 @@ namespace CarroEmDia.Infrastructure.Data.Context
 {
     public class CarroEmDiaDbContext(DbContextOptions<CarroEmDiaDbContext> options) : DbContext(options)
     {
-        public DbSet<User> Users { get; set; }
+        public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<Vehicle> Vehicles { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            modelBuilder.Entity<User>();
+            modelBuilder.ApplyConfigurationsFromAssembly(typeof(CarroEmDiaDbContext).Assembly);
         }
     }
 }

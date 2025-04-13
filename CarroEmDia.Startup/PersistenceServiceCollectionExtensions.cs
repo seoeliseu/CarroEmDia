@@ -10,10 +10,10 @@ namespace CarroEmDia.Startup
         public static IServiceCollection AddPersistence(this IServiceCollection services, IConfiguration config)
         {
             services.AddDbContext<CarroEmDiaDbContext>(options =>
-                    options.UseSqlServer(
-                        config.GetConnectionString("Default"),
-                        sqlServerOptions => sqlServerOptions.MigrationsAssembly("SeuProjeto.Migrations")
-                    ));
+            options.UseSqlite(
+                config.GetConnectionString("Default"),
+                sqliteOptions => sqliteOptions.MigrationsAssembly("CarroEmDia.Infrastructure")
+            ));
 
             return services;
         }

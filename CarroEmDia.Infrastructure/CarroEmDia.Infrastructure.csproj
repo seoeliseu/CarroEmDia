@@ -19,4 +19,8 @@
     <ProjectReference Include="..\CarroEmDia.Domain\CarroEmDia.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Data\Migrations\" />
+  </ItemGroup>
+
 </Project>
