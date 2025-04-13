@@ -9,5 +9,8 @@
         public string LicensePlate { get; private set; } = licensePlate;
 
         public User? User { get; private set; }
+
+        private readonly List<Maintenance> _maintenances = [];
+        public IReadOnlyCollection<Maintenance> Maintenances => _maintenances.AsReadOnly();
     }
 }

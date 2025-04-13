@@ -20,9 +20,6 @@ namespace CarroEmDia.Infrastructure.Data.Mappings
                 .IsRequired()
                 .HasMaxLength(100);
 
-            builder.Property(u => u.PasswordHash)
-                .IsRequired();
-
             builder.HasMany(u => u.Vehicles)
                    .WithOne(v => v.User)             
                    .HasForeignKey(v => v.UserId)    
