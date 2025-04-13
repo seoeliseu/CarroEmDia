@@ -41,7 +41,7 @@ namespace CarroEmDia.Api.Endpoints
                 {
                     return Results.Unauthorized();
                 }
-            });
+            }).WithMetadata(new AllowApiKeyAttribute());
         }
 
         private static void MapQueryEndpoints(this IEndpointRouteBuilder app)
