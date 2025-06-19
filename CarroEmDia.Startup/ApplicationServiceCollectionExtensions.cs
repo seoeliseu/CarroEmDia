@@ -9,16 +9,16 @@ namespace CarroEmDia.Startup
     {
         public static IServiceCollection AddApplication(this IServiceCollection services)
         {
-            services.AddScoped<IDispatcher, Dispatcher>();
+            services.AddTransient<IDispatcher, Dispatcher>();
 
             services.Scan(scan => scan
                             .FromAssemblyOf<Dispatcher>()
                             .AddClasses(c => c.AssignableTo(typeof(ICommandHandler<,>)))
                             .AsImplementedInterfaces()
-                            .WithScopedLifetime()
+                            .WithTransientLifetime()
                             .AddClasses(c => c.AssignableTo(typeof(IQueryHandler<,>)))
                             .AsImplementedInterfaces()
-                            .WithScopedLifetime());
+                            .WithTransientLifetime());
 
             return services;
         }

@@ -14,8 +14,8 @@ namespace CarroEmDia.Startup
             services.AddHttpClient();
 
             services.AddHttpContextAccessor();
-            services.AddScoped<ITokenService, TokenService>();
-            services.AddScoped<ICurrentUser, CurrentUser>();
+            services.AddTransient<ITokenService, TokenService>();
+            services.AddTransient<ICurrentUser, CurrentUser>();
 
             return services;
         }

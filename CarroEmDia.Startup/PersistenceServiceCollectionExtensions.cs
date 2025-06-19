@@ -17,14 +17,14 @@ namespace CarroEmDia.Startup
                 sqliteOptions => sqliteOptions.MigrationsAssembly("CarroEmDia.Infrastructure")
             ));
 
-             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+             services.AddTransient(typeof(IRepository<>), typeof(Repository<>));
 
-            services.AddScoped<IVehicleRepository, VehicleRepository>();
-            services.AddScoped<IUserRepository, UserRepository>();
-            services.AddScoped<IMaintenanceRepository, MaintenanceRepository>();
-            services.AddScoped<IMaintenanceTypeRepository, MaintenanceTypeRepository>();
+            services.AddTransient<IVehicleRepository, VehicleRepository>();
+            services.AddTransient<IUserRepository, UserRepository>();
+            services.AddTransient<IMaintenanceRepository, MaintenanceRepository>();
+            services.AddTransient<IMaintenanceTypeRepository, MaintenanceTypeRepository>();
 
-            services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.AddTransient<IUnitOfWork, UnitOfWork>();
 
             return services;
         }
